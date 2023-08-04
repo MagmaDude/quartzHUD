@@ -1,0 +1,22 @@
+// Medic Ubercharge //////////////////////////////////////////////////////////////////////////////////////
+event HudMedicCharged 
+{
+	Animate	ChargeMeter 	FgColor		"qPurple"		Linear 0.3 0.4
+	Animate	ChargeLabel 	FgColor		"qPurple"		Linear 0.3 0.4
+
+	RunEvent HudMedicChargedLoop	0.0
+}
+
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 0.0
+}
+
+event HudMedicChargedStop
+{
+	Animate	ChargeMeter 	FgColor		"qWhite"		Linear 0.0 0.0001
+	Animate	ChargeLabel 	FgColor		"qWhite"		Linear 0.0 0.0001
+
+	StopEvent HudMedicCharged 0.0
+	StopEvent HudMedicChargedLoop 0.0				Linear 0.0 0.0001
+}
